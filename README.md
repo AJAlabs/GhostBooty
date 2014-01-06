@@ -1,10 +1,13 @@
 # GhostBooty
 
-*"A Sassy Bootstrap Starter Theme"* for [Ghost](http://github.com/AJAlabs/ghostbooty/).
+*"A Sassy Bootstrap Starter Theme for [Ghost](https://ghost.org)"*.
 
-GhostBooty uses Bootstrap Sass, Font Awesome for styling and Grunt tasks to compile and minify the assets.
-You can use the theme as is out of the box or customize it by editing the custom.js and custom.sass files.
+GhostBooty uses Bootstrap Sass and Font Awesome for styling. Grunt tasks are used to compile and minify the assets.
+You can use the theme as is, or customize it by editing the custom.js and custom.sass files.
 
+enjoy!
+
+![Ghost Booty](http://completelyseriouscomics.com/comics/2012-06-01-ghostbuttcomics.jpg)
 
 ### Resources & Dependancies
 
