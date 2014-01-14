@@ -1,4 +1,4 @@
-/*! GhostBooty - v0.1.0 - 2014-01-06
+/*! GhostBooty - v0.1.1 - 2014-01-14
 * http://ghostbooty.com
 * Copyright (c) 2014 AJ Acevedo - Licensed under the MIT License
 */
@@ -11781,18 +11781,4 @@ if (typeof jQuery === "undefined") { throw new Error("Bootstrap requires jQuery"
   })
 
 }(jQuery);
-;/*globals jQuery, document */
-(function ($) {
-    "use strict";
-
-    $(document).ready(function(){
-
-        // On the home page, move the blog icon inside the header 
-        // for better relative/absolute positioning.
-
-        //$("#blog-logo").prependTo("#site-head-content");
-
-    });
-
-}(jQuery));
-;
+;;

@@ -1,5 +1,5 @@
 /**
-* GhostBooty v0.1.0
+* GhostBooty - v0.1.1
 * Custom Sass styles and vendor overrides
 *
 * Temporarily adding the original Casper styles from screen.css
@@ -49,7 +49,11 @@
 }
 
 /* Apply these base styles to all icons */
-.icon-ghost, .icon-feed, .icon-twitter, .icon-google-plus, .icon-facebook {
+.icon-ghost:before,
+.icon-feed:before,
+.icon-twitter:before,
+.icon-google-plus:before,
+.icon-facebook:before {
     font-family: 'icons';
     speak: none;
     font-style: normal;
@@ -61,7 +65,7 @@
     text-decoration: none;
 }
 
-/* Each icon is created by inserting the corret character into the 
+/* Each icon is created by inserting the correct character into the
    content of the :before pseudo element. Like a boss. */
 .icon-ghost:before {
     content: "\e000";
@@ -165,13 +169,30 @@ h4 a, h5 a, h6 a {
 }
 
 
-p, ul, ol {
+p, ul, ol, dl {
     margin: 1.6em 0;
 }
 
 ol ol, ul ul,
 ul ol, ol ul {
     margin: 0.4em 0;
+}
+
+dl dt {
+    float: left;
+    width: 180px;
+    overflow: hidden;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: bold;
+    margin-bottom: 1em
+}
+
+dl dd {
+    margin-left: 200px;
+    margin-bottom: 1em
 }
 
 hr {
@@ -211,28 +232,6 @@ blockquote cite {
 
 blockquote cite a { font-weight: normal; }
 
-
-dl {
-    margin: 1.6em 0;
-}
-
-dl dt {
-    float: left;
-    width: 180px;
-    overflow: hidden;
-    clear: left;
-    text-align: right;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: bold;
-    margin-bottom: 1em
-}
-
-dl dd {
-    margin-left: 200px;
-    margin-bottom: 1em
-}
-
 mark {
     background-color: #ffc336;
 }
@@ -241,7 +240,7 @@ code, tt {
     padding: 1px 3px;
     font-family: Inconsolata, monospace, sans-serif;
     font-size: 0.85em;
-    white-space: pre;
+    white-space: pre-wrap;
     border: 1px solid #E3EDF3;
     background: #F7FAFB;
     border-radius: 2px;
@@ -325,11 +324,20 @@ table tbody > tr:nth-child(odd) > th {
     background-color: #f6f6f6;
 }
 
-table.plain {
-    tbody > tr:nth-child(odd) > td,
-    tbody > tr:nth-child(odd) > th {
-        background: transparent;
-    }
+table.plain tbody > tr:nth-child(odd) > td,
+table.plain tbody > tr:nth-child(odd) > th {
+   background: transparent;
+}
+
+iframe, .fluid-width-video-wrapper {
+    display: block;
+    margin: 1.6em 0;
+}
+
+/* When a video is inside the fitvids wrapper, drop the
+margin on the iframe, cause it breaks stuff. */
+.fluid-width-video-wrapper iframe {
+    margin: 0;
 }
 
 
@@ -364,7 +372,7 @@ table.plain {
    ========================================================================== */
 
 /* Big cover image on the home page */
-#site-head {
+.site-head {
     position: relative;
     display: table;
     width: 100%;
@@ -376,8 +384,12 @@ table.plain {
     background-size: cover;
 }
 
+.blog-logo {
+    text-decoration: none;
+}
+
 /* Yo-logo. Yolo-go. Upload one in ghost/settings/ */
-#blog-logo img {
+.blog-logo img {
     display: block;
     max-height: 100px;
     width: auto;
@@ -385,20 +397,14 @@ table.plain {
     line-height: 0;
 }
 
-#back {
-    color: rgba(0,0,0,0.2);
-    position: fixed;
-    top: 8px;
-    left: 8px;
-    padding: 6px;
-    font-size: 16px;
-}
-
 /* The details of your blog. Defined in ghost/settings/ */
 .blog-title {
     margin: 10px 0 10px 0;
     font-size: 5rem;
     letter-spacing: -1px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.1);
 }
 
 .blog-description {
@@ -406,8 +412,10 @@ table.plain {
     font-size: 1.8rem;
     line-height: 1.5em;
     font-weight: 300;
+    font-style: italic;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     letter-spacing: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 
 /* Every post, on every page, gets this style on its <article> tag */
@@ -534,6 +542,12 @@ table.plain {
 /* Insert some mad padding up in the header for better spacing */
 .post-template .post-header {
     padding: 60px 0;
+    text-align: center;
+}
+
+.post-template .blog-title {
+    display: inline-block;
+    padding: 2.5rem 0;
 }
 
 /* Keep large images within the bounds of the post-width */
@@ -541,6 +555,7 @@ table.plain {
     display: block;
     max-width: 100%;
     margin: 0 auto;
+    height: auto;
 }
 
 /* The author credit area after the post */
@@ -583,6 +598,7 @@ table.plain {
     display: inline-block;
     margin: 1.4rem 1.6rem 1.6rem 0;
     color: #BBC7CC;
+    text-decoration: none;
 }
 
 .post-footer .share a:hover {
@@ -719,7 +735,7 @@ table.plain {
     color: #D2DEE3;
     font-size: 10px;
     position: absolute;
-    top: 2px;
+    top: 9px;
     left: 9px;
     font-weight: bold;
     transition: color 0.5s ease;
@@ -742,10 +758,9 @@ table.plain {
     padding: 4px 8px 5px 8px;
     position:absolute;
     top: -23px;
-    left: -23px;
+    left: -21px;
     color: rgba(255,255,255,0.9);
     font-size: 1.1rem;
-    font-weight: bold;
     line-height: 1em;
     text-align: center;
     background: #50585D;
@@ -786,7 +801,7 @@ table.plain {
         margin-left: 0;
     }
 
-    #site-head {
+    .site-head {
         -webkit-box-sizing: border-box; 
         -moz-box-sizing: border-box;
         box-sizing: border-box; 
@@ -844,7 +859,7 @@ table.plain {
 
 @media only screen and (max-width: 500px) {
 
-    #blog-logo img {
+    .blog-logo img {
         max-height: 80px;
     }
 
@@ -863,7 +878,7 @@ table.plain {
         line-height: 1.6em;
     }
 
-    #site-head {
+    .site-head {
         padding: 10% 0;
     }
 

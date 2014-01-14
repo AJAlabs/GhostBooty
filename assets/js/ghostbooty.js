@@ -1,18 +1,3 @@
 /**
- * Main JS file for GhostBooty behaviors
+ *  GhostBooty - v0.1.1 - Main JavaScript file
  */
-
-/*globals jQuery, document */
-(function ($) {
-    "use strict";
-
-    $(document).ready(function(){
-
-        // On the home page, move the blog icon inside the header 
-        // for better relative/absolute positioning.
-
-        //$("#blog-logo").prependTo("#site-head-content");
-
-    });
-
-}(jQuery));

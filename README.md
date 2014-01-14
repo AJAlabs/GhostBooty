@@ -5,9 +5,18 @@
 GhostBooty uses Bootstrap Sass and Font Awesome for styling. Grunt tasks are used to compile and minify the assets.
 You can use the theme as is, or customize it by editing the custom.js and custom.sass files.
 
+GhostBooty is compatible with Ghost version 0.4!
+
 enjoy!
 
 ![Ghost Booty](http://completelyseriouscomics.com/comics/2012-06-01-ghostbuttcomics.jpg)
+
+### Usage
+
+Just drop this theme into your `content/themes` directory and restart Ghosts. You can then set `ghostbooty` as the theme from the `/ghost/settings/general/` menu.
+
+GhostBooty uses Grunt to lint, compile and concat the assets. Customize the theme by editing the `custom.js` and `custom.scss` files and fire up grunt or use the `grunt watch` while you build your theme.
+
 
 ### Resources & Dependancies
 

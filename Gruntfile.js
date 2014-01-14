@@ -3,11 +3,11 @@ module.exports = function(grunt) {
   // Project configuration
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-         '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %> -' +
-         ' Licensed under the <%= pkg.license %> License\n*/\n\n',
+    banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %> -' +
+            ' Licensed under the <%= pkg.license %> License\n*/\n\n',
 
     // JSHint JavaScript files
     jshint: {
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
     // Simple config to run sass, jshint and uglify any time a js or sass file is added, modified or deleted
     watch: {
       sass: {
-        files: ['assets/sass/ghostbooty.scss', 'assets/sass/custom.scss'],
+        files: ['assets/sass/custom.scss', 'assets/sass/ghostbooty.scss', 'assets/sass/style.scss'],
         tasks: ['sass']
       },
       jshint: {
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
       },
       concat: {
         files : ['<%= concat.dist.src %>'],
-        tasks: ['concat','manifest']
+        tasks: ['concat']
       },
       uglify: {
         files: ['assets/js/ghostbooty.js', 'assets/js/custom.js'],
